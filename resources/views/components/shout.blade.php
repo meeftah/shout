@@ -39,7 +39,7 @@
                 />
             </div>
         @endif
-        <div class="text-sm font-medium" {{ $itemCenter ? 'style="margin: auto;"' : '' }}>
+        <div class="text-sm font-medium" {{ $itemCenter ? 'style=margin: auto;' : '' }}>
             {{ $slot }}
         </div>
     </div>
