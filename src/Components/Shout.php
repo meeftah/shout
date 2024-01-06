@@ -68,7 +68,7 @@ class Shout extends ViewField
         return $this;
     }
 
-    public function getItemCenter(): bool
+    public function getItemCenter()
     {
         return $this->evaluate($this->itemCenter);
     }
