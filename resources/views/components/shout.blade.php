@@ -3,6 +3,7 @@
     'color' => 'info',
     'icon' => 'heroicon-o-information-circle',
     'iconSize' => 'md',
+    'itemCenter' => false,
     'extraAttributes' => [],
 ])
 
@@ -28,7 +29,7 @@
     ]) }}
     style="{{ $panelStyles }}"
 >
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-3 {{ $itemCenter ? 'm-auto' : '' }}">
         @if ($icon)
             <div class="flex-shrink-0">
                 <x-filament::icon

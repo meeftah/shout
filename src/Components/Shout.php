@@ -5,6 +5,7 @@ namespace Awcodes\Shout\Components;
 use Awcodes\Shout\Components\Concerns\HasContent;
 use Awcodes\Shout\Components\Concerns\HasIcon;
 use Awcodes\Shout\Components\Concerns\HasType;
+use Closure;
 use Filament\Forms\Components\ViewField;
 use Filament\Support\Concerns\HasColor;
 
@@ -16,6 +17,8 @@ class Shout extends ViewField
     use HasContent;
 
     protected string $view = 'shout::components.shout-field';
+
+    protected bool $itemCenter = false;
 
     public function setUp(): void
     {
@@ -30,7 +33,7 @@ class Shout extends ViewField
     {
         $color = $this->evaluate($this->color);
 
-        if (! $color) {
+        if (!$color) {
             return match ($this->getType()) {
                 'success' => 'success',
                 'warning' => 'warning',
@@ -46,7 +49,7 @@ class Shout extends ViewField
     {
         $icon = $this->evaluate($this->icon);
 
-        if (! $icon && $icon !== '') {
+        if (!$icon && $icon !== '') {
             return match ($this->getType()) {
                 'success' => 'heroicon-o-check-circle',
                 'warning' => 'heroicon-o-exclamation-triangle',
@@ -56,5 +59,17 @@ class Shout extends ViewField
         }
 
         return $icon;
+    }
+
+    public function itemCenter(Closure | bool $itemCenter = false): static
+    {
+        $this->itemCenter = $itemCenter;
+
+        return $this;
+    }
+
+    public function getItemCenter(): bool
+    {
+        return $this->evaluate($this->itemCenter);
     }
 }
