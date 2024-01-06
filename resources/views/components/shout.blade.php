@@ -29,7 +29,7 @@
     ]) }}
     style="{{ $panelStyles }}"
 >
-    <div class="flex items-center gap-3 {{ $itemCenter ? 'm-auto' : '' }}">
+    <div class="flex items-center gap-3">
         @if ($icon)
             <div class="flex-shrink-0">
                 <x-filament::icon
@@ -39,7 +39,7 @@
                 />
             </div>
         @endif
-        <div class="text-sm font-medium">
+        <div class="text-sm font-medium" {{ $itemCenter ? 'style="margin: auto;"' : '' }}>
             {{ $slot }}
         </div>
     </div>
